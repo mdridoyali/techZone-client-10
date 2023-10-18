@@ -19,8 +19,8 @@ const Home = () => {
           <div className="bg-slate-200 rounded-md" key={idx}>
             <img className="w-full h-52 rounded-t-md " src={data.image} />
             <div className="flex items-center justify-between p-3">
-            <h2 className="font-semibold  bg-slate-300 w-20 px-2 py-1 rounded-full " >{data.category}</h2>
-            <Link  className="bg-slate-300 p-2 rounded-full "><FaLongArrowAltRight/></Link>
+            <h2 className="font-semibold  bg-slate-300  hover:bg-slate-200 w-20 px-2 py-1 rounded-full " >{data.category}</h2>
+            <Link to={`/products/${data.brandName}`} className="bg-slate-300  hover:bg-slate-200 p-2 rounded-full "><FaLongArrowAltRight/></Link>
             </div>
           </div>
         ))}

@@ -1,13 +1,40 @@
+import Swal from "sweetalert2";
+
 const AddProduct = () => {
+  const handleAddProduct = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const image = form.image.value;
+    const brandName = form.brandName.value;
+    const type = form.type.value;
+    const price = form.price.value;
+    const rating = form.rating.value;
+    const description = form.description.value;
+    console.log(name, image, brandName, type, price, rating, description);
 
-    const handleAddProduct = (e) =>{
-        e.preventDefault()
-        const form = e.target;
-        const name = form.name.value
-        const image = form.image.value
-        console.log(name, image)
+    const products = {name, image, brandName, type, price, rating, description}
+    fetch('http://localhost:5000/products', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(products)
+    })
+    .then(res => res.json())
+    .then(data => {
+         console.log(data)
+         if(data.acknowledged){
+            return Swal.fire({
+                icon: "success",
+                title: "Product Added",
+                text: "Thank you!",
+              });
+         }
+    })
+    
 
-    }
+  };
   return (
     <div className="bg-sky-100">
       <h2 className="text-center text-5xl font-semibold pt-10">
@@ -97,7 +124,7 @@ const AddProduct = () => {
           <div className="pt-3">
             <input
               type="submit"
-              value={'Add Product'}
+              value={"Add Product"}
               className="input w-full input-bordered btn bg-slate-600 text-white hover:text-black"
             />
           </div>
