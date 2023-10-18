@@ -65,6 +65,7 @@ const {user, logOutUser} = useContext(AuthContext)
                   <span className="badge">New</span>
                 </a>
               </li>
+              <li><Link to={'/register'}>Register</Link></li>
               <li>
                 {user ? <button onClick={()=> logOutUser()} >Logout</button> : <Link to={'/login'} ><button>Login</button></Link>}
               </li>

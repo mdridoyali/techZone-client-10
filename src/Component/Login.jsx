@@ -47,7 +47,7 @@ const { logInUser } = useContext(AuthContext);
               <form onSubmit={handleLogin} className="card-body">
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Email</span>
+                    <span className="label-text">Email <span className="text-red-500 text-xl" >*</span></span>
                   </label>
                   <input
                     name="email"
@@ -59,11 +59,11 @@ const { logInUser } = useContext(AuthContext);
                 </div>
                 <div className="form-control relative">
                   <label className="label">
-                    <span className="label-text">Password</span>
+                    <span className="label-text">Password <span className="text-red-500 text-xl" >*</span></span>
                   </label>
                   <span
                     onClick={() => setShow(!show)}
-                    className=" absolute right-4 bottom-4 "
+                    className=" absolute cursor-pointer right-4 bottom-4 "
                   >
                     {show ? <p>Hide</p> : <p>Show</p>}
                   </span>

@@ -4,16 +4,19 @@ import { FaGithub } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import {
+  GithubAuthProvider,
   GoogleAuthProvider,
   signInWithPopup,
   updateProfile,
 } from "firebase/auth";
 import auth from "../firebase.config";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
   const [show, setShow] = useState(false);
   const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider()
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -22,6 +25,15 @@ const Register = () => {
     const photo = form.photo.value;
     const password = form.password.value;
     console.log(name, email, photo, password);
+
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!.])[A-Za-z\d@#$%^&+=!.]{6,20}$/
+    if(!passwordRegex.test(password)){
+      return Swal.fire({
+        icon: "error",
+        title: "Invalid Password",
+        text: "Password must be at least one uppercase, one digit, one special character and be 6 to 20 characters long.",
+      });
+    }
 
     createUser(email, password)
       .then((result) => {
@@ -32,10 +44,21 @@ const Register = () => {
         })
           .then((result) => console.log(result))
           .catch((error) => console.log(error));
+          form.reset()
+          return Swal.fire({
+            icon: "success",
+            title: "Successfully registered",
+            text: "Thank you!",
+          });
       })
       .catch((error) => {
-        console.log(error);
-        return alert("Already have an Account");
+        console.log(error.user);
+        form.reset()
+        return Swal.fire({
+          icon: "error",
+          title: "Already you are registered",
+          text: "Please Login!",
+        });
       });
   };
 
@@ -43,7 +66,16 @@ const Register = () => {
     signInWithPopup(auth, googleProvider)
     .then((result) => {
       console.log(result.user);
-      return alert("Google Login Success");
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+ }
+
+ const githubLogin = () => {
+    signInWithPopup(auth, githubProvider)
+    .then((result) => {
+      console.log(result.user);
     })
     .catch((error) => {
       console.log(error);
@@ -62,7 +94,7 @@ const Register = () => {
               <form onSubmit={handleRegister} className="card-body">
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Name</span>
+                    <span className="label-text">Name <span className="text-red-500 text-xl" >*</span></span>
                   </label>
                   <input
                     type="text"
@@ -74,7 +106,7 @@ const Register = () => {
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Email</span>
+                    <span className="label-text">Email <span className="text-red-500 text-xl" >*</span></span>
                   </label>
                   <input
                     type="email"
@@ -97,11 +129,11 @@ const Register = () => {
                 </div>
                 <div className="form-control relative">
                   <label className="label">
-                    <span className="label-text">Password</span>
+                    <span className="label-text">Password <span className="text-red-500 text-xl" >*</span></span>
                   </label>
                   <span
                     onClick={() => setShow(!show)}
-                    className="absolute right-4 bottom-3"
+                    className="absolute right-4 cursor-pointer bottom-3"
                   >
                     {show ? <p>Hide</p> : <p>Show</p>}
                   </span>
@@ -129,7 +161,7 @@ const Register = () => {
                     </button> <br/>
                     <button
                       className="btn w-full  btn-sm md:px-8 px-4 "
-                      //   onClick={githubLogin}
+                        onClick={githubLogin}
                     >
                       {"Continue with Github"}
                       <FaGithub className="text-xl"></FaGithub>{" "}
