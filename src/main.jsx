@@ -11,6 +11,8 @@ import AuthProvider from "./Provider/AuthProvider";
 import Login from "./Component/Login";
 import Register from "./Component/Register";
 import AllProducts from "./Component/AllProducts";
+import PrivetRoute from "./Component/PrivetRoute";
+import Hp from "./Component/Category/Hp";
 
 const router = createBrowserRouter([
   {
@@ -21,15 +23,15 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch('category.json')
+        loader: () => fetch('http://localhost:5000/categories')
       },
       {
         path: "/addProduct",
-        element: <AddProduct></AddProduct>,
+        element: <PrivetRoute><AddProduct></AddProduct></PrivetRoute>,
       },
       {
         path: "/myCart",
-        element: <MyCart></MyCart>,
+        element: <PrivetRoute><MyCart></MyCart></PrivetRoute>,
       },
       {
         path: "/login",
@@ -40,9 +42,14 @@ const router = createBrowserRouter([
         element: <Register></Register>,
       },
       {
-        path: "/products/:brandName",
-        element: <AllProducts></AllProducts>,
-        loader: ({params}) => fetch(`http://localhost:5000/products/${params.brandName}`)
+        path: "/products/:brand_name",
+        element: <PrivetRoute><AllProducts></AllProducts></PrivetRoute>,
+        loader: ({params}) => fetch(`http://localhost:5000/products/${params.brand_name}`)
+      },
+      {
+        path: "/hp/:brand_name",
+        element: <Hp></Hp>,
+        loader: ({params}) => fetch(`http://localhost:5000/products/${params.brand_name}`)
       },
     ],
   },

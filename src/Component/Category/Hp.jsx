@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
-const AllProducts = () => {
-const {brand_name} = useParams()
+
+const Hp = () => {
+    const {brand_name} = useParams()
 console.log(brand_name)
   const [products, setProducts] = useState([]);
 
@@ -19,22 +20,8 @@ useEffect(() => {
 
     fetchData();
   }, []);
-
-//   useEffect( () => {
-//     fetch('category.json')
-//     .then(res => res.json())
-//     .then(datas => {
-
-//        datas.map(data => setDatas(data))
-        
-//     })
-//   } , [])
-//   const filteredData = allProducts.filter(product => product.brandName !== datas.category )
-//   console.log(filteredData)
-
-
-  return (
-    <div className="my-10">
+    return (
+        <div className="my-10">
       <div className=" w-11/12 md:w-9/12  gap-10 mx-auto grid md:grid-cols-2">
         {products.map((product, idx) => (
           <div className="bg-slate-200 rounded-md" key={idx}>
@@ -66,7 +53,7 @@ useEffect(() => {
         ))}
       </div>
     </div>
-  );
+    );
 };
 
-export default AllProducts;
+export default Hp;

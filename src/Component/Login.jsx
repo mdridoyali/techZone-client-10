@@ -29,7 +29,7 @@ const { logInUser } = useContext(AuthContext);
         console.log(error.user);
         return Swal.fire({
           icon: "error",
-          title: "Email or password is wrong",
+          title: "Invalid Email or password",
           text: "Give correct information!",
         });
       });
