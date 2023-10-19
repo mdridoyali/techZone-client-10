@@ -12,6 +12,7 @@ import Login from "./Component/Login";
 import Register from "./Component/Register";
 import AllProducts from "./Component/AllProducts";
 import PrivetRoute from "./Component/PrivetRoute";
+import ProductDetails from "./Component/ProductDetails";
 
 
 const router = createBrowserRouter([
@@ -45,6 +46,11 @@ const router = createBrowserRouter([
         path: "/products/:brand_name",
         element: <PrivetRoute><AllProducts></AllProducts></PrivetRoute>,
         loader: ({params}) => fetch(`http://localhost:5000/products/${params.brand_name}`)
+      },
+      {
+        path: "/productDetails/:id",
+        element:<ProductDetails></ProductDetails>,
+        loader: ({params}) => fetch(`http://localhost:5000/product/${params.id}`)
       },
     ],
   },
