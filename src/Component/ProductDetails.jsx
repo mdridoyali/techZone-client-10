@@ -1,22 +1,40 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const ProductDetails = () => {
   const { id } = useParams();
   const [data, setData] = useState({});
-  // console.log('data', data);
-  console.log("id", id);
-  console.log("data", data);
 
   useEffect(() => {
-
     fetch(`http://localhost:5000/product/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        // console.log('data', data)
         setData(data);
       });
   }, [id]);
+
+  const handleAddToCart = (data) => {
+
+    fetch("http://localhost:5000/addProducts", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+         if (data.acknowledged) {
+          return Swal.fire({
+            icon: "success",
+            title: "Product Added To Your Cart",
+            text: "Thank you!",
+          });
+        }
+      });
+  };
 
   return (
     <div className=" p-3   ">
@@ -28,7 +46,12 @@ const ProductDetails = () => {
           <h2 className="card-title">{data.name}</h2>
           <p>{data.description}</p>
           <div className="card-actions justify-end">
-            <button className="btn bg-slate-300">Add to cart</button>
+            <button
+              onClick={() => handleAddToCart(data)}
+              className="btn bg-slate-300"
+            >
+              Add to cart
+            </button>
           </div>
         </div>
       </div>
