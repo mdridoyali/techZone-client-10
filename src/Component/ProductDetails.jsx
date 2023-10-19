@@ -15,21 +15,36 @@ const ProductDetails = () => {
   }, [id]);
 
   const handleAddToCart = (data) => {
-
-    fetch("http://localhost:5000/addProducts", {
+    if (!data) {
+        console.error("Missing product data");
+        return;
+      }
+    
+      const { name, image, brandName, type, price, rating, description } = data;
+    
+      const productData = {
+        name,
+        image,
+        brandName,
+        type,
+        price,
+        rating,
+        description,
+      };
+    fetch("http://localhost:5000/cartProducts", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(productData),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-         if (data.acknowledged) {
+        if (data.acknowledged) {
           return Swal.fire({
             icon: "success",
-            title: "Product Added To Your Cart",
+            title: "Product Added",
             text: "Thank you!",
           });
         }
