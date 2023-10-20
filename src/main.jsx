@@ -13,6 +13,7 @@ import Register from "./Component/Register";
 import AllProducts from "./Component/AllProducts";
 import PrivetRoute from "./Component/PrivetRoute";
 import ProductDetails from "./Component/ProductDetails";
+import UpdateProduct from "./Component/UpdateProduct";
 
 
 const router = createBrowserRouter([
@@ -53,6 +54,11 @@ const router = createBrowserRouter([
         element:<PrivetRoute><ProductDetails></ProductDetails></PrivetRoute>,
         loader: ({params}) => fetch(`http://localhost:5000/product/${params.id}`)
       },
+      {
+        path: "/updateProduct/:id",
+        element:<PrivetRoute> <UpdateProduct></UpdateProduct></PrivetRoute>,
+        loader: ({params}) => fetch(`http://localhost:5000/product/${params.id}`)
+      }
     ],
   },
 ]);
