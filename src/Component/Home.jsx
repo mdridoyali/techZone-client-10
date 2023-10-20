@@ -1,4 +1,4 @@
-/* eslint-disable react/no-unescaped-entities */
+
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { Link, useLoaderData } from "react-router-dom";
 
@@ -110,13 +110,13 @@ const Home = () => {
         <p>
           Unlock Fantastic Savings: Shop Now and Enjoy a 20% Discount on
           Purchases Over $2000! It is time to treat yourself or your loved ones
-          to something special. At [Your Brand Name], we're thrilled to offer
+          to something special. At [Your Brand Name], we are thrilled to offer
           you an exclusive opportunity to save big on your shopping. When you
-          spend $2000 or more on our wide range of high-quality products, you'll
+          spend $2000 or more on our wide range of high-quality products, you will
           automatically receive a generous 20% discount at checkout. Whether
-          you're upgrading your tech gadgets, furnishing your home, or indulging
+          you are upgrading your tech gadgets, furnishing your home, or indulging
           in fashion and accessories, this limited-time offer is your chance to
-          get more for less. Don't miss out on this amazing deal; explore our
+          get more for less. Do not miss out on this amazing deal; explore our
           collection today and make the most of your shopping experience with
           us!
         </p>

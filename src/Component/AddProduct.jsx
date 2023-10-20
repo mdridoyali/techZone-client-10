@@ -14,7 +14,7 @@ const AddProduct = () => {
     console.log(name, image, brandName, type, price, rating, description);
 
     const products = {name, image, brandName, type, price, rating, description}
-    fetch('http://localhost:5000/products', {
+    fetch('https://assignment-technology-server-mn12gjs5a-mdridoys-projects.vercel.app/products', {
         method: 'POST',
         headers: {
             'content-type': 'application/json',

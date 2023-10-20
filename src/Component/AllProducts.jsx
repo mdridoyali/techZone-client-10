@@ -10,7 +10,7 @@ const AllProducts = () => {
   // useEffect(() => {
   //     const fetchData = async () => {
   //       try {
-  //         const response = await fetch(`http://localhost:5000/products/${brand_name}`);
+  //         const response = await fetch(`https://assignment-technology-server-mn12gjs5a-mdridoys-projects.vercel.app/products/${brand_name}`);
   //         const data = await response.json();
   //         setProducts(data);
   //       } catch (error) {
@@ -36,7 +36,7 @@ const AllProducts = () => {
 
   // const handleUpdate = (id) => {
   //   console.log(id);
-  //   fetch(`http://localhost:5000/products/${id}`, {
+  //   fetch(`https://assignment-technology-server-mn12gjs5a-mdridoys-projects.vercel.app/products/${id}`, {
   //     method: "PUT",
   //     headers: {
   //       'content-type': 'application/json',

@@ -25,7 +25,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch('http://localhost:5000/categories')
+        loader: () => fetch('https://assignment-technology-server-mn12gjs5a-mdridoys-projects.vercel.app/categories')
       },
       {
         path: "/addProduct",
@@ -34,7 +34,7 @@ const router = createBrowserRouter([
       {
         path: "/myCart",
         element: <PrivetRoute><MyCart></MyCart></PrivetRoute>,
-        loader: () => fetch('http://localhost:5000/cartProducts')
+        loader: () => fetch('https://assignment-technology-server-mn12gjs5a-mdridoys-projects.vercel.app/cartProducts')
       },
       {
         path: "/login",
@@ -47,17 +47,17 @@ const router = createBrowserRouter([
       {
         path: "/products/:brand_name",
         element: <PrivetRoute><AllProducts></AllProducts></PrivetRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/products/${params.brand_name}`)
+        loader: ({params}) => fetch(`https://assignment-technology-server-mn12gjs5a-mdridoys-projects.vercel.app/products/${params.brand_name}`)
       },
       {
         path: "/productDetails/:id",
         element:<PrivetRoute><ProductDetails></ProductDetails></PrivetRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/product/${params.id}`)
+        loader: ({params}) => fetch(`https://assignment-technology-server-mn12gjs5a-mdridoys-projects.vercel.app/product/${params.id}`)
       },
       {
         path: "/updateProduct/:id",
         element:<PrivetRoute> <UpdateProduct></UpdateProduct></PrivetRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/product/${params.id}`)
+        loader: ({params}) => fetch(`https://assignment-technology-server-mn12gjs5a-mdridoys-projects.vercel.app/product/${params.id}`)
       }
     ],
   },
