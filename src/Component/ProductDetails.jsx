@@ -7,7 +7,7 @@ const ProductDetails = () => {
   const [data, setData] = useState({});
 
   useEffect(() => {
-    fetch(`https://assignment-technology-server-mn12gjs5a-mdridoys-projects.vercel.app/product/${id}`)
+    fetch(`https://assignment-technology-server.vercel.app/product/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setData(data);
@@ -31,7 +31,7 @@ const ProductDetails = () => {
         rating,
         description,
       };
-    fetch("https://assignment-technology-server-mn12gjs5a-mdridoys-projects.vercel.app/cartProducts", {
+    fetch("https://assignment-technology-server.vercel.app/cartProducts", {
       method: "POST",
       headers: {
         "content-type": "application/json",

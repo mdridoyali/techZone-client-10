@@ -19,7 +19,7 @@ const MyCart = () => {
       confirmButtonText: "Delete",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://assignment-technology-server-mn12gjs5a-mdridoys-projects.vercel.app/cartProducts/${id}`, {
+        fetch(`https://assignment-technology-server.vercel.app/cartProducts/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -48,7 +48,7 @@ const MyCart = () => {
   //       confirmButtonText: "Yes, delete it!",
   //     }).then((result) => {
   //       if (result.isConfirmed) {
-  //         fetch(`https://assignment-technology-server-mn12gjs5a-mdridoys-projects.vercel.app/cartProducts/${id}`, {
+  //         fetch(`https://assignment-technology-server.vercel.app/cartProducts/${id}`, {
   //           method: "DELETE",
   //         })
   //           .then((res) => res.json())

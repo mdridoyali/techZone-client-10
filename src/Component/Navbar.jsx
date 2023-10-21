@@ -1,13 +1,14 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
 const {user, logOutUser} = useContext(AuthContext)
     const links = <>
-           <li><NavLink to={'/'} >Home</NavLink></li>
-           <li><NavLink to={'/addProduct'} >Add Product</NavLink></li>
-           <li><NavLink to={'/myCart'} >My Cart</NavLink></li>
+           <li className="text-lg font-semibold"><NavLink to={'/'} >Home</NavLink></li>
+           <li className="text-lg font-semibold"><NavLink to={'/addProduct'} >Add Product</NavLink></li>
+           <li className="text-lg font-semibold"><NavLink to={'/myCart'} >My Cart</NavLink></li>
     </>
 
   return (
@@ -33,7 +34,7 @@ const {user, logOutUser} = useContext(AuthContext)
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu bg-slate-500 space-y-1 py-4 text-white menu-sm dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-52"
             >
             {links}
             </ul>
@@ -46,7 +47,8 @@ const {user, logOutUser} = useContext(AuthContext)
           </ul>
         </div>
         <div className="navbar-end">
-        <input type="checkbox" className="toggle mr-5"  />
+        {/* <input type="checkbox" className="toggle mr-5"  /> */}
+        <ThemeToggle/>
         <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-20 rounded-full">
@@ -58,17 +60,16 @@ const {user, logOutUser} = useContext(AuthContext)
             </label>
             <ul
               tabIndex={0}
-              className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+              className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-slate-500 py-5 space-y-1  text-white rounded-box w-52"
             >
-              <li>
-                <a className="justify-between">
+              <li >
+                <a className="justify-between text-xl">
                   {user?.displayName ? user?.displayName : <p>Profile</p>}
-                  <span className="badge">New</span>
                 </a>
               </li>
-              <li><Link to={'/register'}>Register</Link></li>
+              <li><Link className="text-lg" to={'/register'}>Register</Link></li>
               <li>
-                {user ? <button onClick={()=> logOutUser()} >Logout</button> : <Link to={'/login'} ><button>Login</button></Link>}
+                {user ? <button className="text-lg" onClick={()=> logOutUser()} >Logout</button> : <Link className="text-lg" to={'/login'} ><button>Login</button></Link>}
               </li>
             </ul>
           </div>
