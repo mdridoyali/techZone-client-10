@@ -73,7 +73,7 @@ const MyCart = () => {
       </h2>
       <div className=" gap-10 grid md:grid-cols-2 lg:grid-cols-3 ">
         {updateData.map((items, idx) => (
-          <div key={idx} className="shadow-2xl bg-slate-200 rounded-xl">
+          <div key={idx} className="shadow-2xl hover:shadow-2xl hover:bg-slate-400  bg-slate-200 text-black font-semibold rounded-xl">
             <img className="w-full h-72 rounded-t-xl " src={items.image} />
             <div className="flex justify-between items-center px-2 py-5">
               <div className="space-y-2">

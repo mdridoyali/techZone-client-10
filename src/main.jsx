@@ -14,6 +14,7 @@ import AllProducts from "./Component/AllProducts";
 import PrivetRoute from "./Component/PrivetRoute";
 import ProductDetails from "./Component/ProductDetails";
 import UpdateProduct from "./Component/UpdateProduct";
+import AboutUs from "./Component/AboutUs";
 
 
 const router = createBrowserRouter([
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/aboutUs",
+        element: <AboutUs></AboutUs>,
       },
       {
         path: "/products/:brand_name",

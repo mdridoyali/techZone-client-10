@@ -1,32 +1,45 @@
-
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { Link, useLoaderData } from "react-router-dom";
 
 const Home = () => {
   const datas = useLoaderData();
-  console.log(datas)
+  console.log(datas);
 
   return (
     <div>
-      <img
-        className="h-[100vh] w-full"
-        src={
-          "https://i.ibb.co/f01q37N/domenico-loia-Eh-Tc-C9s-YXsw-unsplash.jpg"
-        }
-      />
-      <h2 className="text-center mt-10 text-5xl font-semibold">Our Products</h2>
+      <div className="relative">
+        <img
+          className="md:h-[100vh] w-full"
+          src="https://i.ibb.co/f01q37N/domenico-loia-Eh-Tc-C9s-YXsw-unsplash.jpg"
+        />
+        <div className="absolute inset-0 h-full w-full bg-gray-500 opacity-50"></div>
+        <p className="absolute top-[10%] px-6 text-2xl md:text-5xl lg:text-7xl font-bold text-slate-100">
+          TechZone Unveiled: Explore HP, Apple, Samsung, Google, Sony, Xiaomi
+          and More.
+        </p>
+        <Link to={'/aboutUs'}><button className="absolute bottom-5 md:bottom-14 left-1/2 transform -translate-x-1/2 -translate-y-1/2 md:text-2xl font-bold btn">
+          Explore More
+        </button></Link>
+      </div>
+
+      <h2 className="text-center mt-10 text-5xl font-semibold">
+        Our Collections
+      </h2>
       <p className="border-dashed border border-lime-400 text-center w-52 mx-auto mt-5"></p>
       <div className=" w-11/12 mx-auto my-16 gap-10  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
         {datas.map((data, idx) => (
-          <div className="bg-slate-200 rounded-md" key={idx}>
+          <div
+            className="bg-slate-200 hover:shadow-2xl hover:bg-slate-400 rounded-md"
+            key={idx}
+          >
             <img className="w-full h-52 rounded-t-md " src={data.image} />
             <div className="flex items-center justify-between p-3">
-              <h2 className="font-semibold  bg-slate-300  hover:bg-slate-200 w-20 px-2 py-1 rounded-full ">
+              <h2 className="font-semibold text-black bg-slate-300  hover:bg-slate-200 w-20 px-2 py-1 rounded-full ">
                 {data.name}
               </h2>
               <Link
                 to={`/products/${data.brand_name}`}
-                className="bg-slate-300  hover:bg-slate-200 p-2 rounded-full "
+                className="bg-slate-300 text-black hover:bg-slate-200 p-3 rounded-full "
               >
                 <FaLongArrowAltRight />
               </Link>
@@ -35,20 +48,18 @@ const Home = () => {
         ))}
       </div>
 
-      <div className="bg-slate-100">
-        <h2 className="text-center bg-slate-100 text-4xl font-semibold pt-10">
+      <div className="w-11/12 md:w-10/12 mx-auto border-t-4">
+        <h2 className="text-center  text-6xl font-semibold pt-10">
           Our Featured Brands
         </h2>
-        <p className="border-dashed bg-slate-200 border border-lime-400 text-center w-72 mx-auto mt-5"></p>
-        <h2 className="text-center bg-slate-100 pt-5 text-5xl font-semibold ">
-          Walton
-        </h2>
-        <p className="border-dashed bg-slate-200 border border-lime-400 text-center w-28 mx-auto mt-5 mb-5"></p>
+        <p className="border-dashed  border border-lime-400 text-center w-72 mx-auto mt-5"></p>
+        <h2 className="text-center  pt-5 text-5xl font-semibold ">Walton</h2>
+        <p className="border-dashed  border border-lime-400 text-center w-28 mx-auto mt-5 mb-5"></p>
 
-        <div className="hero  bg-slate-100">
+        <div className="hero  ">
           <div className="hero-content flex-col lg:flex-row-reverse">
             <div className="text-center w-10/12 md:w-1/2  lg:text-left">
-              <h1 className="text-5xl font-semibold">
+              <h1 className="text-3xl font-semibold">
                 Discover Innovation with Walton
               </h1>
               <p className="py-6">
@@ -71,12 +82,12 @@ const Home = () => {
           </div>
         </div>
 
-        <h2 className="text-center bg-slate-100 text-5xl font-semibold pt-10 pb-7">
+        <h2 className="text-center border-t-4 mt-8 w-8/12 md:w-6/12 mx-auto text-5xl font-semibold pt-10 pb-7">
           Super Star
         </h2>
-        <p className="border-dashed bg-slate-200 border border-lime-400 text-center w-36 mx-auto mb-10"></p>
+        <p className="border-dashed  border border-lime-400 text-center w-36 mx-auto mb-10"></p>
 
-        <div className="hero  bg-slate-100">
+        <div className="hero  ">
           <div className="hero-content flex-col lg:flex-row-reverse">
             <div className="card flex-shrink-0 w-10/12  md:w-1/2 max-w-sm shadow-2xl bg-base-100">
               <img
@@ -85,7 +96,7 @@ const Home = () => {
               />
             </div>
             <div className="text-center w-10/12 md:w-1/2 lg:text-left lg:mr-10">
-              <h1 className="text-5xl font-bold">
+              <h1 className="text-3xl font-bold">
                 Elevate Your Journey with Super Star
               </h1>
               <p className="py-6">
@@ -103,7 +114,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="w-11/12 md:w-10/12 mx-auto mb-14">
+      <div className="w-11/12 md:w-10/12 mx-auto mb-14 border-t-4">
         <h2 className="text-center mt-10 text-5xl font-semibold">
           Get 20% discount on shopping above 2000$
         </h2>
@@ -113,15 +124,18 @@ const Home = () => {
           Purchases Over $2000! It is time to treat yourself or your loved ones
           to something special. At [Your Brand Name], we are thrilled to offer
           you an exclusive opportunity to save big on your shopping. When you
-          spend $2000 or more on our wide range of high-quality products, you will
-          automatically receive a generous 20% discount at checkout. Whether
-          you are upgrading your tech gadgets, furnishing your home, or indulging
-          in fashion and accessories, this limited-time offer is your chance to
-          get more for less. Do not miss out on this amazing deal; explore our
-          collection today and make the most of your shopping experience with
-          us!
+          spend $2000 or more on our wide range of high-quality products, you
+          will automatically receive a generous 20% discount at checkout.
+          Whether you are upgrading your tech gadgets, furnishing your home, or
+          indulging in fashion and accessories, this limited-time offer is your
+          chance to get more for less. Do not miss out on this amazing deal;
+          explore our collection today and make the most of your shopping
+          experience with us!
         </p>
-        <img className="w-full h-[70vh] mt-5 rounded-tl-[340px] rounded-br-[350px]" src={"https://i.ibb.co/8mrpJPP/images.jpg"} />
+        <img
+          className="w-full h-[70vh] mt-5 rounded-tl-[340px] rounded-br-[350px]"
+          src={"https://i.ibb.co/8mrpJPP/images.jpg"}
+        />
       </div>
     </div>
   );

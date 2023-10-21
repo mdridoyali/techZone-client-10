@@ -9,6 +9,7 @@ const {user, logOutUser} = useContext(AuthContext)
            <li className="text-lg font-semibold"><NavLink to={'/'} >Home</NavLink></li>
            <li className="text-lg font-semibold"><NavLink to={'/addProduct'} >Add Product</NavLink></li>
            <li className="text-lg font-semibold"><NavLink to={'/myCart'} >My Cart</NavLink></li>
+           <li className="text-lg font-semibold"><NavLink to={'/aboutUs'} >About Us</NavLink></li>
     </>
 
   return (

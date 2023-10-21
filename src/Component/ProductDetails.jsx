@@ -53,7 +53,7 @@ const ProductDetails = () => {
 
   return (
     <div className=" p-3   ">
-      <div className="card card-compact  md:w-9/12  lg:w-6/12 border-t mx-auto my-20  bg-slate-100 shadow-xl">
+      <div className="card card-compact  md:w-9/12  lg:w-6/12 border-t mx-auto my-20 hover:bg-slate-400 text-black bg-slate-100 shadow-xl">
         <figure>
           <img className="w-full h-[400px]" src={data.image} />
         </figure>

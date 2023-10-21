@@ -4,47 +4,7 @@ import { Link, useLoaderData } from "react-router-dom";
 const AllProducts = () => {
   // const {brand_name} = useParams()
   const products = useLoaderData();
-  // console.log(brand_name)
-  // const [products, setProducts] = useState([]);
-
-  // useEffect(() => {
-  //     const fetchData = async () => {
-  //       try {
-  //         const response = await fetch(`https://assignment-technology-server.vercel.app/products/${brand_name}`);
-  //         const data = await response.json();
-  //         setProducts(data);
-  //       } catch (error) {
-  //         console.error(error);
-  //       }
-  //     };
-
-  //     fetchData();
-  //   }, []);
-
-  //   useEffect( () => {
-  //     fetch('category.json')
-  //     .then(res => res.json())
-  //     .then(datas => {
-
-  //        datas.map(data => setDatas(data))
-
-  //     })
-  //   } , [])
-  //   const filteredData = allProducts.filter(product => product.brandName !== datas.category )
-  //   console.log(filteredData)
-  // console.log(products)
-
-  // const handleUpdate = (id) => {
-  //   console.log(id);
-  //   fetch(`https://assignment-technology-server.vercel.app/products/${id}`, {
-  //     method: "PUT",
-  //     headers: {
-  //       'content-type': 'application/json',
-  //     },
-  //     body:JSON.stringify()
-  //   })
-
-  // };
+ 
 
   return (
     <div className="my-10">
@@ -89,13 +49,13 @@ const AllProducts = () => {
   </div>
 </div>
 
-      <h2 className="capitalize text-center mt-10 font-semibold text-4xl">
-        All your products from {products[0].brandName}
+      <h2 className="capitalize text-center mt-10 border-t-4 pt-5 font-semibold text-4xl">
+        All Our products from {products[0].brandName}
       </h2>
-      <p className="border-dashed bg-slate-200 border border-lime-400 text-center w-3/12 mt-7 mx-auto mb-10"></p>
+      <p className="border-dashed bg-slate-200 border  border-lime-400 text-center w-3/12 mt-7 mx-auto mb-10"></p>
       <div className=" w-11/12 md:w-9/12  gap-10 mx-auto grid md:grid-cols-2">
         {products.map((product, idx) => (
-          <div className="bg-slate-200 rounded-md shadow-2xl " key={idx}>
+          <div className="bg-slate-200 rounded-md shadow-2xl text-black hover:shadow-2xl hover:bg-slate-400  " key={idx}>
             <img className="w-full h-80 rounded-t-md " src={product.image} />
             <div className="p-1 lg:p-4 flex justify-between">
               <div className="">

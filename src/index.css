@@ -8,8 +8,8 @@
 :root {
     --background-color-light: #ffffff;
     --text-color-light: #333;
-    --background-color-dark: #121212;
-    --text-color-dark: #fff;
+    --background-color-dark: #4c4b4f;
+    --text-color-dark: #a19f9f;
   }
   /* Light Mode */
   body.light {
