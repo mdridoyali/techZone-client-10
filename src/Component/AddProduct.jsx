@@ -36,16 +36,16 @@ const AddProduct = () => {
 
   };
   return (
-    <div className="bg-sky-100">
+    <div className="">
       <h2 className="text-center text-5xl font-semibold pt-10">
         Add Your Product
       </h2>
       <div className=" w-11/12 md:w-9/12 lg:w-7/12 mx-auto mt-5 pb-16 ">
-        <form onSubmit={handleAddProduct} className=" mx-auto text-center ">
+        <form onSubmit={handleAddProduct} className=" mx-auto text-center font-semibold">
           <div className="grid gap-x-10 gap-y-4 md:grid-cols-2 mx-auto text-center">
             <div className="">
               <label className="label">
-                <span className="label-text">Name</span>
+                <span className="label-text ">Name</span>
               </label>
               <input
                 type="text"
@@ -125,7 +125,7 @@ const AddProduct = () => {
             <input
               type="submit"
               value={"Add Product"}
-              className="input w-full input-bordered btn bg-slate-600 text-white hover:text-black"
+              className="input w-full input-bordered btn bg-slate-800 text-white hover:text-black"
             />
           </div>
         </form>

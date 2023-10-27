@@ -6,10 +6,10 @@
 
 /* App.css */
 :root {
-    --background-color-light: #ffffff;
-    --text-color-light: #333;
-    --background-color-dark: #4c4b4f;
-    --text-color-dark: #a19f9f;
+    --background-color-light: #d9d9d9;
+    --text-color-light: #303030;
+    --background-color-dark: rgb(51 65 85);
+    --text-color-dark: #c3c3c3;
   }
   /* Light Mode */
   body.light {

@@ -12,14 +12,19 @@ const Home = () => {
           className="md:h-[100vh] w-full"
           src="https://i.ibb.co/f01q37N/domenico-loia-Eh-Tc-C9s-YXsw-unsplash.jpg"
         />
-        <div className="absolute inset-0 h-full w-full bg-gray-500 opacity-50"></div>
+        <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-[#151515] to-[rgba(21,21,21,0)]"></div>
         <p className="absolute top-[10%] px-6 text-2xl md:text-5xl lg:text-7xl font-bold text-slate-100">
-          TechZone Unveiled: Explore HP, Apple, Samsung, Google, Sony, Xiaomi
-          and More.
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-blue-700">
+            TechZone 
+          </span> 
+           Unveiled: Explore HP, Apple, Samsung, Google, Sony, Xiaomi and More. <br/>
+            <Link to={"/aboutUs"}>
+          <button className="md:text-2xl font-bold btn mt-10">
+            Explore More
+          </button>
+        </Link>
         </p>
-        <Link to={'/aboutUs'}><button className="absolute bottom-5 md:bottom-14 left-1/2 transform -translate-x-1/2 -translate-y-1/2 md:text-2xl font-bold btn">
-          Explore More
-        </button></Link>
+       
       </div>
 
       <h2 className="text-center mt-10 text-5xl font-semibold">
@@ -53,7 +58,11 @@ const Home = () => {
           Our Featured Brands
         </h2>
         <p className="border-dashed  border border-lime-400 text-center w-72 mx-auto mt-5"></p>
-        <h2 className="text-center  pt-5 text-5xl font-semibold ">Walton</h2>
+        <h2 className="text-center  pt-5 text-5xl font-semibold ">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-blue-700">
+            Walton
+          </span>
+        </h2>
         <p className="border-dashed  border border-lime-400 text-center w-28 mx-auto mt-5 mb-5"></p>
 
         <div className="hero  ">
@@ -83,7 +92,9 @@ const Home = () => {
         </div>
 
         <h2 className="text-center border-t-4 mt-8 w-8/12 md:w-6/12 mx-auto text-5xl font-semibold pt-10 pb-7">
-          Super Star
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-blue-700">
+            Super Star
+          </span>
         </h2>
         <p className="border-dashed  border border-lime-400 text-center w-36 mx-auto mb-10"></p>
 

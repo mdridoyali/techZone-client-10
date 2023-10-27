@@ -1,11 +1,20 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const MyCart = () => {
+  const {user} =useContext(AuthContext)
   const products = useLoaderData();
   const [updateData, setUpdateData] = useState(products);
-  console.log(updateData);
+  // console.log( 'products', products[0]);
+  // console.log( 'user', user.email);
+
+  useEffect( () => {
+       const result = products.filter(items => items.email === user.email)
+       console.log(result)
+       setUpdateData(result)
+  }, [user, products])
 
   const handleDelete = (id) => {
     console.log(id);
@@ -34,37 +43,6 @@ const MyCart = () => {
       }
     });
   };
-
-  //   const handleDelete = (id) => {
-  //     console.log(id);
-
-  //     Swal.fire({
-  //       title: "Are you sure?",
-  //       text: "You won't be able to revert this!",
-  //       icon: "warning",
-  //       showCancelButton: true,
-  //       confirmButtonColor: "#3085d6",
-  //       cancelButtonColor: "#d33",
-  //       confirmButtonText: "Yes, delete it!",
-  //     }).then((result) => {
-  //       if (result.isConfirmed) {
-  //         fetch(`https://assignment-technology-server.vercel.app/cartProducts/${id}`, {
-  //           method: "DELETE",
-  //         })
-  //           .then((res) => res.json())
-  //           .then((data) => {
-  //             console.log(data);
-  //             if (data.deletedCount > 0) {
-  //                Swal.fire(
-  //                 "Deleted!",
-  //                 "Your file has been deleted.",
-  //                 "success"
-  //               );
-  //             }
-  //           });
-  //       }
-  //     });
-  //   };
 
   return (
     <div className="w-11/12 gap-10 md:w-9/12 mx-auto my-14">

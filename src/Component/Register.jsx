@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { useContext, useState } from "react";
@@ -17,6 +17,8 @@ const Register = () => {
   const [show, setShow] = useState(false);
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider()
+  const navigate = useNavigate();
+  const location = useLocation()
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -45,6 +47,7 @@ const Register = () => {
           .then((result) => console.log(result))
           .catch((error) => console.log(error));
           form.reset()
+          navigate(location?.state ? location?.state : '/')
           return Swal.fire({
             icon: "success",
             title: "Successfully registered",
@@ -86,12 +89,15 @@ const Register = () => {
     <div className="mx-5">
       <div className="  rounded-xl  bg-gray-100 my-10 md:p-5 md:w-3/5 lg:w-2/2 mx-auto ">
         <h2 className="text-3xl font-bold text-slate-600 mt-5 text-center ">
-          Register Form
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-blue-700">
+            Register Now
+          </span>
+         
         </h2>
         <div className=" my-5 mx-auto ">
           <div className="hero-content flex-col lg:flex-row-reverse mx-auto">
             <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-slate-200">
-              <form onSubmit={handleRegister} className="card-body">
+              <form onSubmit={handleRegister} className=" px-7 text-black">
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Name <span className="text-red-500 text-xl" >*</span></span>
@@ -168,7 +174,7 @@ const Register = () => {
                     </button>
                   </div>
                 </div>
-                <p className="text-center">
+                <p className="text-center py-3">
                   Already have an account?{" "}
                   <Link
                     to={"/login"}

@@ -39,7 +39,7 @@ const UpdateProduct = () => {
 
   };
   return (
-    <div className="bg-gray-400 text-black">
+    <div className=" text-black">
       <h2 className="text-center text-5xl font-semibold pt-10">
         Update Your Product Here
       </h2>
@@ -135,7 +135,7 @@ const UpdateProduct = () => {
             <input
               type="submit"
               value={"Update Product"}
-              className="input w-full input-bordered btn bg-slate-600 text-white hover:text-black"
+              className="input w-full input-bordered btn bg-slate-800 text-white hover:text-black"
             />
           </div>
         </form>

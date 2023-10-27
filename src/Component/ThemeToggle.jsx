@@ -24,7 +24,7 @@ const ThemeToggle = () => {
       document.body.classList.remove(theme === 'light' ? 'dark' : 'light');
       document.body.classList.add(storedTheme);
     }
-  }, [storedTheme]);
+  }, [storedTheme, theme]);
 
   return (
     <button onClick={toggleTheme}>
